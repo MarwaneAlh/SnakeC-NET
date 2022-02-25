@@ -23,4 +23,15 @@ public class Fruit : MonoBehaviour
         this.transform.position = new Vector3(Mathf.Round(x), Mathf.Round(y), 0.0f);
 
     }
+    /*Cette methode permet de determiner quoi fair quand le snake entre en collision avec un fruit
+     *Ici la verification permet de verifier si cest bien le snake
+     */
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.tag == "SnakeHead")
+        {
+
+            RandomePosition();
+        }
+        }
 }
