@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakeGameScript : MonoBehaviour
 {
+    int score = 0;
+    
 
    /*Utilisation d'attribut de type Vector , type qui contient deux valeurs comme une paire
    /*Cette value va servire a stocker l'axe X ainsi que l'xe Y de la direction 
@@ -13,7 +16,11 @@ public class SnakeGameScript : MonoBehaviour
    private List<Transform> _body;
     public Transform bodyPrefab;
 
-
+    public void GameOver()
+    {
+       
+        SceneManager.LoadScene("GameOverScene");
+    }
     private void Start() 
     {
         _body = new List<Transform>();
@@ -60,7 +67,9 @@ public class SnakeGameScript : MonoBehaviour
      *La position est donnée grace au derniere element de la liste du body 
      */
     private void Grow() 
+        
     {
+        score += 10;
         Transform body = Instantiate(this.bodyPrefab);
         body.position = _body[_body.Count - 1].position;
         _body.Add(body);
@@ -73,7 +82,10 @@ public class SnakeGameScript : MonoBehaviour
      */
 
     private void ResetState()
+        
     {
+        Debug.Log("TEST");
+       GameOver();
         for (int i = 1; i < _body.Count;i++)
         {
             Destroy(_body[i].gameObject);
@@ -96,4 +108,6 @@ public class SnakeGameScript : MonoBehaviour
             ResetState();   
         }
     }
+
+   
 }
