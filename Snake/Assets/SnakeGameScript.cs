@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class SnakeGameScript : MonoBehaviour
 {
-    int score = 0;
-    public AudioSource eatsounds;
+   
     
 
 
@@ -14,11 +14,16 @@ public class SnakeGameScript : MonoBehaviour
    /*Cette value va servire a stocker l'axe X ainsi que l'xe Y de la direction 
    /*Initialisation a la direction right
    *Latribut body ici represente son corps
+   *Attribut Score ici representant le score
+   *L'attribut AudioSource ici represente le fichier audio lorsqu'un joueur mange le fruit
+   *L'attribut Text sert à fair une liaison avec le text UI 
    */
    private Vector2 _direction = Vector2.right;
    private List<Transform> _body;
     public Transform bodyPrefab;
-
+    public static int score = 0;
+    public AudioSource eatsounds;
+    public Text textscore;
 
     /*Methode Game Over servant a generer l'ecran en cas de perte de jeux
      *
@@ -32,6 +37,7 @@ public class SnakeGameScript : MonoBehaviour
     }
     private void Start() 
     {
+        textscore=GameObject.Find("Canvas/Text").GetComponent<Text>();
         _body = new List<Transform>();
         _body.Add(this.transform);  
     }
@@ -95,7 +101,7 @@ public class SnakeGameScript : MonoBehaviour
     private void ResetState()
         
     {
-        Debug.Log("TEST");
+        
         
        GameOver();
         for (int i = 1; i < _body.Count;i++)
@@ -115,6 +121,8 @@ public class SnakeGameScript : MonoBehaviour
         if(other.tag=="Fruit")
         {
             Grow();
+            Debug.Log("Score :  " +score);
+            textscore.text = "Score : " + score;
             eatsounds.Play();
         }
         else if (other.tag == "Wall")
