@@ -50,6 +50,7 @@
      <Compile Include="Assets\mainmenuscript.cs" />
      <Compile Include="Assets\Scenes\Fruit.cs" />
      <Compile Include="Assets\SnakeGameScript.cs" />
+     <Compile Include="Assets\GameOverScript.cs" />
  <Reference Include="UnityEngine">
  <HintPath>E:/Program Files/2020.3.29f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
