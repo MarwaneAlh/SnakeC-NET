@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class SnakeGameScript : MonoBehaviour
 {
     int score = 0;
+    public AudioSource eatsounds;
     
+
 
    /*Utilisation d'attribut de type Vector , type qui contient deux valeurs comme une paire
    /*Cette value va servire a stocker l'axe X ainsi que l'xe Y de la direction 
@@ -15,6 +18,12 @@ public class SnakeGameScript : MonoBehaviour
    private Vector2 _direction = Vector2.right;
    private List<Transform> _body;
     public Transform bodyPrefab;
+
+
+    /*Methode Game Over servant a generer l'ecran en cas de perte de jeux
+     *
+     */
+
 
     public void GameOver()
     {
@@ -33,6 +42,7 @@ public class SnakeGameScript : MonoBehaviour
    */
    private void Update()
    {
+
       if(Input.GetKeyDown(KeyCode.UpArrow)){
          _direction=Vector2.up;
       }else if(Input.GetKeyDown(KeyCode.DownArrow)){
@@ -79,12 +89,14 @@ public class SnakeGameScript : MonoBehaviour
      * Supression de tout les objets creer 
      * Suppresion des objets dans la liste du body
      * Reinitialisation a 0 du vector3
+     * Appelle de la methode Game over afin de generer ecran de game over
      */
 
     private void ResetState()
         
     {
         Debug.Log("TEST");
+        
        GameOver();
         for (int i = 1; i < _body.Count;i++)
         {
@@ -103,8 +115,11 @@ public class SnakeGameScript : MonoBehaviour
         if(other.tag=="Fruit")
         {
             Grow();
-        }else if (other.tag == "Wall")
+            eatsounds.Play();
+        }
+        else if (other.tag == "Wall")
         {
+          
             ResetState();   
         }
     }
