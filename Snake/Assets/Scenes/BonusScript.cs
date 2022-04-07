@@ -62,7 +62,7 @@ public class BonusScript : MonoBehaviour
             hideBonus();
         }
 
-        if(other.tag == "Fruit")
+        if(other.tag == "Fruit" || other.tag == "poison")
         {
             RandomePosition();
         }

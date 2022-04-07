@@ -28,7 +28,7 @@ public class Fruit : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (other.tag == "SnakeHead")
+        if (other.tag == "SnakeHead"|| other.tag=="Bonus" || other.tag == "poison")
         {
 
             RandomePosition();
