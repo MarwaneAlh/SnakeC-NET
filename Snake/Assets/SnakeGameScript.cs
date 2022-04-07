@@ -125,6 +125,11 @@ public class SnakeGameScript : MonoBehaviour
             textscore.text = "Score : " + score;
             eatsounds.Play();
         }
+        if (other.tag=="Bonus")
+        {
+            score += 50;
+            textscore.text = "Score : " + score;
+        }
         else if (other.tag == "Wall")
         {
           
