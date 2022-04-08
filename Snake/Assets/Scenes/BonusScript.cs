@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BonusScript : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class BonusScript : MonoBehaviour
      */
     public BoxCollider2D gridArea;
     public SpriteRenderer bonuscicon;
-    
+    public AudioSource successsound;
+
 
     /*
      * Methode appeller automatiquement au lancement sert a appeller la methode qui fait apparaitre le bonus
@@ -59,6 +61,7 @@ public class BonusScript : MonoBehaviour
     {
         if (other.tag == "SnakeHead")
         {
+            successsound.Play();
             hideBonus();
         }
 
