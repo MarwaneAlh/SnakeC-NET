@@ -29,7 +29,7 @@ public class SnakeGameScript : MonoBehaviour
      *
      */
 
-
+  
     public void GameOver()
     {
        
@@ -135,7 +135,7 @@ public class SnakeGameScript : MonoBehaviour
           
             ResetState();   
         }
-    }
+    }   
 
    
 }

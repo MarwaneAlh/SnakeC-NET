@@ -27,4 +27,9 @@ public class mainmenuscript : MonoBehaviour
     {
         SceneManager.LoadScene("SnakeGame");
     }
+
+    public void explanation()
+    {
+        SceneManager.LoadScene("explanationScene");
+    }
 }

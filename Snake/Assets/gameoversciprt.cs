@@ -40,6 +40,7 @@ public class gameoversciprt : MonoBehaviour
 
     public void restartbuttonaction()
     {
+        Debug.Log("PETIT ETETSF");
         SceneManager.LoadScene("SnakeGame");
     }
 

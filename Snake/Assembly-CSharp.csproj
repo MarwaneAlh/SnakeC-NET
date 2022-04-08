@@ -50,6 +50,7 @@
      <Compile Include="Assets\mainmenuscript.cs" />
      <Compile Include="Assets\Scenes\BonusScript.cs" />
      <Compile Include="Assets\Scenes\Fruit.cs" />
+     <Compile Include="Assets\explanationScript.cs" />
      <Compile Include="Assets\SnakeGameScript.cs" />
      <Compile Include="Assets\gameoversciprt.cs" />
      <Compile Include="Assets\poisonScript.cs" />
